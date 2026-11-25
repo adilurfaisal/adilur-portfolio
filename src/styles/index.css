@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #07090f;
+  --color-ink-soft: #111827;
+  --color-violet: #8b5cf6;
+  --color-sky: #38bdf8;
+  --color-paper: #f8fafc;
+  --color-mist: #94a3b8;
+
+  --font-display: "Space Grotesk", "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-mist/20;
+  }
+
+  html {
+    scroll-behavior: auto;
+    background-color: var(--color-ink);
+  }
+
+  body {
+    @apply bg-ink text-paper font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-violet);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sky);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ink-soft);
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-ink-soft px-4 py-2 text-sm text-paper transition-transform focus:translate-y-0;
+  }
+
+  .glass-panel {
+    background: rgba(10, 13, 22, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .text-gradient {
+    background: linear-gradient(120deg, var(--color-violet), var(--color-sky));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

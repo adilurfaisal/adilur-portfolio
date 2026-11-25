@@ -1,0 +1,87 @@
+import type { SkillCategory } from "@/types";
+
+export const skillCategories: SkillCategory[] = [
+  {
+    id: "frontend",
+    title: "Frontend",
+    description: "Interactive interfaces across today's major JavaScript frameworks.",
+    skills: [
+      { name: "JavaScript", description: "Core language for building interactive, client-side experiences." },
+      { name: "React", description: "Component-based library for building dynamic user interfaces." },
+      { name: "Vue.js", description: "Progressive framework for approachable, reactive front ends." },
+      { name: "Next.js", description: "React framework for server-rendered and statically generated apps." },
+      { name: "Nuxt.js", description: "Vue framework for server-rendered and statically generated apps." },
+      { name: "AngularJS", description: "Structured MVC framework used for data-driven web applications." },
+      { name: "HTML5", description: "Semantic markup foundation for accessible, structured web content." },
+      { name: "CSS", description: "Styling and layout for responsive, polished interfaces." },
+      { name: "jQuery", description: "Lightweight library for DOM manipulation in legacy and hybrid codebases." },
+    ],
+  },
+  {
+    id: "backend",
+    title: "Backend",
+    description: "Server-side languages and frameworks powering business logic and APIs.",
+    skills: [
+      { name: "PHP", description: "Server-side language for building web applications and APIs." },
+      { name: "Laravel", description: "Expressive PHP framework for structured, maintainable applications." },
+      { name: "Node.js", description: "JavaScript runtime for building scalable backend services." },
+      { name: "Python", description: "General-purpose language used for backend services and automation." },
+      { name: "FastAPI", description: "Modern Python framework for building fast, typed APIs." },
+      { name: "Ruby", description: "Dynamic language used for backend and scripting tasks." },
+    ],
+  },
+  {
+    id: "data-apis",
+    title: "Databases & APIs",
+    description: "Data storage and the interfaces that connect systems together.",
+    skills: [
+      { name: "MySQL", description: "Relational database used for structured application data." },
+      { name: "SQLite", description: "Lightweight embedded database for local and small-scale storage." },
+      { name: "REST APIs", description: "Standard architecture for designing networked application interfaces." },
+      { name: "GraphQL", description: "Query language for flexible, client-driven API requests." },
+      { name: "JSON", description: "Data interchange format used across modern APIs." },
+      { name: "Third-party API integrations", description: "Connecting applications to external services and platforms." },
+    ],
+  },
+  {
+    id: "ecommerce",
+    title: "E-commerce",
+    description: "Shopify storefronts, apps, and conversion-focused checkout flows.",
+    skills: [
+      { name: "Shopify", description: "E-commerce platform for building and managing online stores." },
+      { name: "Liquid", description: "Shopify's templating language for dynamic storefronts." },
+      { name: "Shopify Theme 2.0", description: "Modern Shopify theme architecture with flexible sections and schema." },
+      { name: "Custom Shopify apps", description: "Extending Shopify stores with bespoke app functionality." },
+      { name: "Payment gateway integrations", description: "Connecting stores to multiple secure payment providers." },
+      { name: "Cart and checkout automation", description: "Abandoned cart recovery and checkout flow improvements." },
+      { name: "E-commerce performance", description: "Optimizing storefront speed, security, and conversion." },
+    ],
+  },
+  {
+    id: "infrastructure",
+    title: "Infrastructure",
+    description: "Servers, networks, and the systems that keep applications running.",
+    skills: [
+      { name: "Linux Server", description: "Administration of Linux-based application and web servers." },
+      { name: "Windows Server", description: "Management of Windows Server and Exchange Server environments." },
+      { name: "Network infrastructure", description: "Designing and maintaining multi-site network environments." },
+      { name: "TCP/IP", description: "Core networking protocol suite underlying modern networks." },
+      { name: "DNS", description: "Domain name resolution for networked services." },
+      { name: "DHCP", description: "Automated IP address assignment across network infrastructure." },
+      { name: "MikroTik", description: "Routing and network hardware configuration and management." },
+    ],
+  },
+  {
+    id: "additional",
+    title: "Additional Expertise",
+    description: "Supporting languages, platforms, and engineering fundamentals.",
+    skills: [
+      { name: "Java", description: "Object-oriented language used for cross-platform application logic." },
+      { name: "C#", description: "Language used for application and systems development." },
+      { name: "Apache Cordova", description: "Framework for building cross-platform mobile apps from web code." },
+      { name: "Cross-platform development", description: "Building software that runs consistently across platforms." },
+      { name: "Object-oriented programming", description: "Core paradigm underpinning maintainable software design." },
+      { name: "Data structures", description: "Fundamental building blocks for efficient, reliable software." },
+    ],
+  },
+];

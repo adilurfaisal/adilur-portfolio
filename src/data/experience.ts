@@ -1,0 +1,76 @@
+import type { ExperienceEntry } from "@/types";
+
+export const experience: ExperienceEntry[] = [
+  {
+    id: "stackifya",
+    company: "Stackifya",
+    role: "Senior Shopify Developer",
+    location: "Dhaka, Bangladesh",
+    startDate: "August 2025",
+    endDate: "Present",
+    current: true,
+    needsVerification: true,
+    responsibilities: [
+      "Building advanced Shopify themes, apps, and custom e-commerce solutions.",
+    ],
+  },
+  {
+    id: "cepta-tech",
+    company: "Cepta Tech",
+    role: "Shopify Developer",
+    location: "Remote",
+    startDate: "May 2022",
+    endDate: "December 2022",
+    current: false,
+    responsibilities: [
+      "Developed advanced Shopify themes with custom elements, scripts, and flexible schema.",
+      "Built custom apps and API integrations, including multiple payment methods.",
+      "Implemented abandoned cart/checkout recovery and email automation.",
+      "Performed cross-browser QA testing using BrowserStack.",
+      "Reported daily and weekly progress via Asana and joined team meetings on Slack.",
+    ],
+  },
+  {
+    id: "rupashi",
+    company: "Rupashi Group Of Industries",
+    role: "Software Developer",
+    location: "Narayanganj, Dhaka",
+    startDate: "January 2019",
+    endDate: "January 2022",
+    current: false,
+    responsibilities: [
+      "Developed web applications, including a custom ERP system.",
+      "Managed fingerprint attendance data and database servers.",
+      "Supported a multi-site IT infrastructure for 100+ employees.",
+      "Deployed hardware and evaluated software and security solutions.",
+      "Coordinated with third-party technical specialists.",
+    ],
+  },
+  {
+    id: "heritage-school",
+    company: "Heritage School",
+    role: "IT Manager",
+    location: "Narayanganj, Bangladesh",
+    startDate: "January 2016",
+    endDate: "August 2025",
+    current: false,
+    responsibilities: [
+      "Developed the school management system and Android applications for students and teachers.",
+      "Deployed hardware and evaluated security solutions across school IT systems.",
+      "Managed network infrastructure (TCP/IP, DHCP, DNS), Windows Server and Exchange Server environments, and MikroTik devices.",
+      "Oversaw attendance system data and IT procurement.",
+    ],
+  },
+  {
+    id: "govt-school",
+    company: "Govt. Hazi Ibrahim Alamchan Model School and College",
+    role: "IT Officer",
+    location: "Bangladesh",
+    startDate: "January 2014",
+    endDate: "October 2015",
+    current: false,
+    responsibilities: [
+      "Supported IT operations in a dynamic school environment, applying technical knowledge toward professional career development.",
+    ],
+  },
+];
