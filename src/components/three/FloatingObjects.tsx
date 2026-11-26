@@ -114,26 +114,6 @@ function CodeWindow({ position, rotation }: { position: [number, number, number]
   );
 }
 
-function ServerRack({ position }: { position: [number, number, number] }) {
-  const slots = 4;
-  return (
-    <Floater position={position} speed={0.2} amplitude={0.05} rotationSpeed={[0, 0.02, 0]}>
-      <group>
-        <mesh>
-          <boxGeometry args={[0.5, 0.9, 0.4]} />
-          <meshStandardMaterial color="#0f1422" metalness={0.5} roughness={0.5} />
-        </mesh>
-        {Array.from({ length: slots }).map((_, i) => (
-          <mesh key={i} position={[0.18, 0.32 - i * 0.2, 0.21]}>
-            <boxGeometry args={[0.08, 0.04, 0.01]} />
-            <meshBasicMaterial color={i % 2 === 0 ? "#38BDF8" : "#8B5CF6"} />
-          </mesh>
-        ))}
-      </group>
-    </Floater>
-  );
-}
-
 function DeviceLaptop({ position, rotation }: { position: [number, number, number]; rotation?: [number, number, number] }) {
   return (
     <Floater position={position} speed={0.28} amplitude={0.09} rotationSpeed={[0, 0.02, 0]}>
@@ -155,46 +135,15 @@ function DeviceLaptop({ position, rotation }: { position: [number, number, numbe
   );
 }
 
-function DevicePhone({ position, rotation }: { position: [number, number, number]; rotation?: [number, number, number] }) {
-  return (
-    <Floater position={position} speed={0.4} amplitude={0.1} rotationSpeed={[0.02, 0.05, 0]}>
-      <group rotation={rotation}>
-        <mesh>
-          <boxGeometry args={[0.22, 0.44, 0.03]} />
-          <meshStandardMaterial color="#0f1422" metalness={0.5} roughness={0.4} />
-        </mesh>
-        <mesh position={[0, 0, 0.016]}>
-          <planeGeometry args={[0.18, 0.38]} />
-          <meshBasicMaterial color="#8B5CF6" transparent opacity={0.55} />
-        </mesh>
-      </group>
-    </Floater>
-  );
-}
 
 export default function FloatingObjects({ reduced }: { reduced: boolean }) {
   const layout = useMemo(
     () => ({
-      spheres: [
-        [3.1, 1.8, -1.8],
-        [-4.2, 2.4, -3.4],
-        [3.6, 0.9, -3.4],
-      ] as [number, number, number][],
-      cubes: [
-        [-4.4, 1.3, -2.6],
-        [2.8, 2.7, -2.8],
-      ] as [number, number, number][],
-      circuits: [
-        [-4.6, 2.0, -3.8],
-        [3.9, 1.5, -2.2],
-      ] as [number, number, number][],
-      codeWindows: [
-        [-4.8, 1.0, -3],
-        [3.4, 2.2, -1.4],
-      ] as [number, number, number][],
-      servers: [[3.3, 0.45, -1.1]] as [number, number, number][],
-      laptops: [[-3.4, 0.5, 0.2]] as [number, number, number][],
-      phones: [[2.6, 0.6, 1.0]] as [number, number, number][],
+      spheres: [[-4.6, 2.5, -3.6]] as [number, number, number][],
+      cubes: [[4.4, 2.6, -3.2]] as [number, number, number][],
+      circuits: [[-4.8, 1.6, -4]] as [number, number, number][],
+      codeWindows: [[4.2, 1.8, -3.4]] as [number, number, number][],
+      laptops: [[-3.8, 0.45, 0.4]] as [number, number, number][],
     }),
     []
   );
@@ -204,25 +153,19 @@ export default function FloatingObjects({ reduced }: { reduced: boolean }) {
   return (
     <group>
       {layout.spheres.map((p, i) => (
-        <WireframeSphere key={`s-${i}`} position={p} scale={0.8 + i * 0.15} />
+        <WireframeSphere key={`s-${i}`} position={p} scale={0.9} />
       ))}
       {layout.cubes.map((p, i) => (
         <GlassCube key={`c-${i}`} position={p} />
       ))}
       {layout.circuits.map((p, i) => (
-        <CircuitPanel key={`cp-${i}`} position={p} rotation={[0, i % 2 === 0 ? 0.4 : -0.5, 0]} />
+        <CircuitPanel key={`cp-${i}`} position={p} rotation={[0, 0.4, 0]} />
       ))}
       {layout.codeWindows.map((p, i) => (
-        <CodeWindow key={`cw-${i}`} position={p} rotation={[0, i % 2 === 0 ? -0.3 : 0.35, 0]} />
-      ))}
-      {layout.servers.map((p, i) => (
-        <ServerRack key={`sv-${i}`} position={p} />
+        <CodeWindow key={`cw-${i}`} position={p} rotation={[0, -0.35, 0]} />
       ))}
       {layout.laptops.map((p, i) => (
         <DeviceLaptop key={`lt-${i}`} position={p} rotation={[0, 0.5, 0]} />
-      ))}
-      {layout.phones.map((p, i) => (
-        <DevicePhone key={`ph-${i}`} position={p} rotation={[0, -0.4, 0]} />
       ))}
     </group>
   );

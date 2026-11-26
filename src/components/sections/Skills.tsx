@@ -36,7 +36,7 @@ export default function Skills({ reducedMotion }: SkillsProps) {
         <SectionHeading
           eyebrow="Technology Universe"
           title="A toolkit shaped by nine years in production."
-          description="Hover or focus any technology to see what it's used for. Every skill below is matched to a node orbiting the avatar in the scene."
+          description="Hover or focus any technology to see what it's used for. Every skill below is matched to a node orbiting in the scene."
         />
 
         <div

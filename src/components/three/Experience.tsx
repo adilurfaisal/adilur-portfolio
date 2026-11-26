@@ -1,7 +1,8 @@
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { AdaptiveDpr, PerformanceMonitor } from "@react-three/drei";
-import Avatar from "./Avatar";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import SignatureCore from "./SignatureCore";
 import CameraController from "./CameraController";
 import SceneLighting from "./SceneLighting";
 import Environment from "./Environment";
@@ -42,13 +43,21 @@ export default function Experience({ reducedMotion, capabilities }: ExperiencePr
       <CameraController reducedMotion={reducedMotion} />
       <SceneLighting enableShadows={capabilities.enableShadows} />
       <Environment enableShadows={capabilities.enableShadows} />
-      <Suspense fallback={null}>
-        <Avatar reducedMotion={reducedMotion} enableShadows={capabilities.enableShadows} />
-      </Suspense>
+      <SignatureCore reducedMotion={reducedMotion} />
       {!capabilities.isMobile && <FloatingObjects reduced={reducedMotion} />}
       <TechnologyOrbit />
       {!capabilities.isMobile && <ProjectShowroom reduced={reducedMotion} />}
       <Particles count={capabilities.particleCount} />
+      {capabilities.enablePostFx && (
+        <EffectComposer>
+          <Bloom
+            intensity={0.35}
+            luminanceThreshold={0.45}
+            luminanceSmoothing={0.25}
+            mipmapBlur
+          />
+        </EffectComposer>
+      )}
     </Canvas>
   );
 }

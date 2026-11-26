@@ -17,8 +17,8 @@ export default function SceneLighting({ enableShadows }: SceneLightingProps) {
     const { keyIntensity, rimIntensity, fillIntensity, hue } = sceneState.lights;
 
     if (key.current) {
-      key.current.intensity = keyIntensity * 2.6;
-      key.current.color.setHSL(((hue - 20 + 360) % 360) / 360, 0.55, 0.72);
+      key.current.intensity = keyIntensity * 1.8;
+      key.current.color.setHSL(((hue - 20 + 360) % 360) / 360, 0.12, 0.92);
     }
     if (rim.current) {
       rim.current.intensity = rimIntensity * 2;
@@ -35,13 +35,13 @@ export default function SceneLighting({ enableShadows }: SceneLightingProps) {
 
   return (
     <>
-      <ambientLight intensity={0.55} color="#2a3550" />
-      <hemisphereLight ref={fill} args={["#5a6ea0", "#07090F", 0.45]} />
+      <ambientLight intensity={0.45} color="#3a4258" />
+      <hemisphereLight ref={fill} args={["#8a93b0", "#07090F", 0.45]} />
       <directionalLight
         ref={key}
         position={[2.2, 3.4, 4.5]}
         intensity={1.5}
-        color="#8B5CF6"
+        color="#fdf4e8"
         castShadow={enableShadows}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}

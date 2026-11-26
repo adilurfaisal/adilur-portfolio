@@ -2,6 +2,7 @@ import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { createCodeTexture } from "@/utils/canvasTextures";
+import { getUiState } from "@/state/sceneStore";
 
 interface WindowPanelProps {
   position: [number, number, number];
@@ -70,10 +71,20 @@ function Monitor({ position, rotation }: { position: [number, number, number]; r
 }
 
 export default function ProjectShowroom({ reduced }: { reduced: boolean }) {
+  const wrapRef = useRef<THREE.Group>(null);
+
+  useFrame((_, dt) => {
+    if (!wrapRef.current) return;
+    const active = getUiState().activeSectionId === "projects";
+    const target = active ? 1 : 0.001;
+    const s = THREE.MathUtils.damp(wrapRef.current.scale.x, target, 3.5, dt);
+    wrapRef.current.scale.setScalar(s);
+  });
+
   if (reduced) return null;
 
   return (
-    <group>
+    <group ref={wrapRef} scale={0.001}>
       <WindowPanel position={[1.6, 1.9, -1.4]} rotation={[0, -0.4, 0]} size={[1.2, 0.78]} speed={0.3} />
       <WindowPanel position={[-1.9, 1.5, -1.8]} rotation={[0, 0.5, 0]} size={[1.0, 0.65]} speed={0.22} />
       <WindowPanel position={[0.6, 2.3, -2.2]} rotation={[0, -0.15, 0]} size={[0.9, 0.58]} speed={0.26} />
