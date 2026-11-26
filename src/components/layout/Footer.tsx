@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="relative border-t border-mist/10 px-6 py-10 text-sm text-mist">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row">
         <p>
-          &copy; {new Date().getFullYear()} {profile.name}. Built with React, Three.js &amp; GSAP.
+          &copy; {new Date().getFullYear()} {profile.name}. Built with React &amp; GSAP.
         </p>
         <div className="flex items-center gap-4">
           {profile.socials.map((s) => {

@@ -29,7 +29,7 @@ export default function Hero({ reducedMotion }: HeroProps) {
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="max-w-2xl">
           <p data-reveal className="mb-4 font-display text-sm uppercase tracking-[0.4em] text-sky">
-            The Developer Universe
+            Available for new projects
           </p>
           <h1 data-reveal className="font-display text-5xl font-semibold leading-[1.05] text-paper sm:text-6xl lg:text-7xl">
             {profile.name}

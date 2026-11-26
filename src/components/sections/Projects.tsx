@@ -28,7 +28,7 @@ function ProjectCard({ project, featured = false }: { project: ProjectEntry; fea
   return (
     <article
       data-reveal
-      className={`glass-panel flex flex-col gap-5 rounded-2xl p-6 ${featured ? "md:col-span-2" : ""}`}
+      className={`glass-panel hover-lift flex flex-col gap-5 rounded-2xl p-6 ${featured ? "md:col-span-2" : ""}`}
     >
       <ConceptualVisual label={`${project.visualLabel} for ${project.title}`} />
 
@@ -74,7 +74,7 @@ export default function Projects({ reducedMotion }: ProjectsProps) {
     <section id="projects" ref={ref} aria-label="Featured projects" className="relative px-6 py-32 sm:px-10">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Interactive Digital Showroom"
+          eyebrow="Selected Work"
           title="Documented work, not invented metrics."
           description="Each entry reflects what's actually documented on record. Visuals are abstract conceptual illustrations where no screenshot exists."
         />

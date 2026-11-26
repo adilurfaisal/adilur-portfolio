@@ -1,6 +1,5 @@
-import { lazy, Suspense, useEffect, useState } from "react";
-import ExperienceErrorBoundary from "@/components/three/ExperienceErrorBoundary";
-import WebGLFallback from "@/components/three/WebGLFallback";
+import { useEffect, useState } from "react";
+import AnimatedBackground from "@/components/layout/AnimatedBackground";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/layout/ScrollProgress";
@@ -15,22 +14,12 @@ import Services from "@/components/sections/Services";
 import Education from "@/components/sections/Education";
 import Contact from "@/components/sections/Contact";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { useDeviceCapabilities } from "@/hooks/useDeviceCapabilities";
-import { useWebglSupport } from "@/hooks/useWebglSupport";
-import { usePointerTracking } from "@/hooks/usePointerTracking";
 import { initScrollChoreography } from "@/animations/scrollTimeline";
-
-const Experience = lazy(() => import("@/components/three/Experience"));
 
 export default function App() {
   const systemReducedMotion = useReducedMotion();
   const [userDisablesMotion, setUserDisablesMotion] = useState(false);
   const reducedMotion = systemReducedMotion || userDisablesMotion;
-
-  const capabilities = useDeviceCapabilities();
-  const webglSupported = useWebglSupport();
-
-  usePointerTracking(!reducedMotion);
 
   useEffect(() => {
     let handle: ReturnType<typeof initScrollChoreography> | null = null;
@@ -57,15 +46,7 @@ export default function App() {
 
       <LoadingScreen />
 
-      {webglSupported ? (
-        <ExperienceErrorBoundary>
-          <Suspense fallback={<WebGLFallback />}>
-            <Experience reducedMotion={reducedMotion} capabilities={capabilities} />
-          </Suspense>
-        </ExperienceErrorBoundary>
-      ) : (
-        <WebGLFallback />
-      )}
+      <AnimatedBackground />
 
       <ScrollProgress />
       <Navbar reducedMotion={reducedMotion} onToggleMotion={() => setUserDisablesMotion((v) => !v)} />

@@ -1,9 +1,7 @@
 import { useRef, useState } from "react";
 import { skillCategories } from "@/data/skills";
-import { worldPositionForCategory } from "@/animations/orbitLayout";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { setUiState } from "@/state/sceneStore";
 import type { Skill, SkillCategoryId } from "@/types";
 
 interface SkillsProps {
@@ -18,25 +16,19 @@ export default function Skills({ reducedMotion }: SkillsProps) {
 
   const handleEnter = (categoryId: SkillCategoryId, skill: Skill) => {
     setActive({ categoryId, skill });
-    const pos = worldPositionForCategory(categoryId);
-    setUiState({
-      hoveredSkill: skill.name,
-      lookTarget: pos ? { x: pos[0], y: pos[1], z: pos[2] } : null,
-    });
   };
 
   const handleLeave = () => {
     setActive(null);
-    setUiState({ hoveredSkill: null, lookTarget: null });
   };
 
   return (
     <section id="skills" ref={ref} aria-label="Skills" className="relative px-6 py-32 sm:px-10">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Technology Universe"
+          eyebrow="Technical Toolkit"
           title="A toolkit shaped by nine years in production."
-          description="Hover or focus any technology to see what it's used for. Every skill below is matched to a node orbiting in the scene."
+          description="Hover or focus any technology to see what it's used for."
         />
 
         <div
@@ -56,7 +48,7 @@ export default function Skills({ reducedMotion }: SkillsProps) {
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {skillCategories.map((category) => (
-            <div key={category.id} data-reveal className="glass-panel rounded-2xl p-6">
+            <div key={category.id} data-reveal className="glass-panel hover-lift rounded-2xl p-6">
               <h3 className="font-display text-lg font-semibold text-paper">{category.title}</h3>
               <p className="mt-1 text-sm text-mist">{category.description}</p>
               <ul className="mt-4 flex flex-wrap gap-2">

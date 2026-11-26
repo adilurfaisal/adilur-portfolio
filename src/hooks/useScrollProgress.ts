@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from "react";
-import { getUiState, subscribeUi } from "@/state/sceneStore";
+import { getUiState, subscribeUi } from "@/state/scrollStore";
 
 export function useActiveSection(): string {
   return useSyncExternalStore(subscribeUi, () => getUiState().activeSectionId);

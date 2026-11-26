@@ -59,7 +59,7 @@ export default function Navbar({ reducedMotion, onToggleMotion }: NavbarProps) {
                   handleNav(s.id);
                 }}
                 aria-current={activeSection === s.id ? "page" : undefined}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                className={`nav-link rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   activeSection === s.id ? "bg-white/10 text-paper" : "text-mist hover:text-paper"
                 }`}
               >
